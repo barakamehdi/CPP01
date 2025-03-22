@@ -1,17 +1,19 @@
-NAME = violence
-
 CXX = c++
-CXXFLAGS = -Wall -Wextra -Werror -std=c++98 #-fsanitize=address 
+CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 
-SRCS = main.cpp Weapon.cpp HumanA.cpp HumanB.cpp
+NAME = harl
+
+SRCS = main.cpp Harl.cpp
 OBJS = $(SRCS:.cpp=.o)
+
+HEADERS = Harl.hpp
 
 all: $(NAME)
 
 $(NAME): $(OBJS)
 	$(CXX) $(CXXFLAGS) $(OBJS) -o $(NAME)
 
-%.o: %.cpp
+%.o: %.cpp $(HEADERS)
 	$(CXX) $(CXXFLAGS) -c $< -o $@
 
 clean:
@@ -22,7 +24,4 @@ fclean: clean
 
 re: fclean all
 
-test: all
-	./$(NAME)
-
-.PHONY: all clean fclean re test
+.PHONY: all clean fclean re
