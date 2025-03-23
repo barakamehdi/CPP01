@@ -18,6 +18,4 @@ class HumanA {
 
          HumanA(std::string name, Weapon& Weapon) ;
 };
-// HumanA :: HumanA(std :: string name ,  Weapon& weapon ) name (name ) Weapon (weapon) ;
-// HumanA :: HumanA(std :: string name , Weapon&Weapon) : name (name); weapon (weapon){}
 #endif

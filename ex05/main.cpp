@@ -1,22 +1,18 @@
 #include "Harl.hpp"
 
-int main() {
-    Harl harl;
-    
-    std::cout << "Calling DEBUG level:" << std::endl;
-    harl.complain("DEBUG");
-    
-    std::cout << "\nCalling INFO level:" << std::endl;
-    harl.complain("INFO");
-    
-    std::cout << "\nCalling WARNING level:" << std::endl;
-    harl.complain("WARNING");
-    
-    std::cout << "\nCalling ERROR level:" << std::endl;
-    harl.complain("ERROR");
-    
-    std::cout << "\nCalling invalid level:" << std::endl;
-    harl.complain("INVALID");
-    
-    return 0;
+int main(int ac, char **av){
+	if (ac != 2){
+		std::cout << "Usage: ./Harl 'Level'" << std::endl;
+		return 1;
+	}
+	else{
+		if (av[1][0] != '\0' && av[1]){
+			Harl harl;
+			harl.complain(av[1]);
+		}
+		else{
+			std::cout << "Usage: ./Harl 'Level'>" << std::endl;
+			return 1;
+		}
+	}
 }
